@@ -12,7 +12,7 @@ class mysql::server::cron::backup {
   }
 
   cron { 'mysql_backup_cron':
-    command => "/usr/bin/mysqldump --default-character-set=utf8 --all-databases --events --flush-logs --lock-tables --single-transaction | gzip > ${real_mysql_backup_dir}/mysqldump_`date '+%Y%m%d%H%M'`.sql.gz && chmod 600 ${real_mysql_backup_dir}/mysqldump_*.sql.gz",
+    command => "/usr/bin/mysqldump --default-character-set=utf8 --all-databases --events --flush-logs --lock-tables --single-transaction | gzip > ${mysql::server::backup_dir}/mysqldump_`date '+%Y%m%d%H%M'`.sql.gz && chmod 600 ${mysql::server::backup_dir}/mysqldump_*.sql.gz",
     user    => 'root',
     minute  => 0,
     hour    => 1,
