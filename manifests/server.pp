@@ -9,6 +9,8 @@ class mysql::server (
   $backup_cron          = false,
   $optimize_cron        = false,
   $backup_dir           = '/var/backups/mysql',
+  $dated_backups	= false,
+  $retained_backups	= 7,
   $manage_backup_dir    = true,
   $nagios_notcp         = false
 ) {
